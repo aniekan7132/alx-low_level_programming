@@ -1,33 +1,30 @@
 #include <stdio.h>
 
 /**
- * main - returns all possible different combinations of 3 digits
+ * main - prints all possible different combinations of 3 digits
  *
  * Return: Always 0 (Success)
  */
 int main(void)
 {
-	int i;
-	int n;
-	int j;
+	int ones;
+	int tens;
+	int hundreds;
 
-	for (i = 48; i < 58; i++)
+	for (hundreds = 0; hundreds <= '0'; hundreds++)
 	{
-		for (n = 48; n = 58; n++)
+		for (tens = '0'; tens <= '0'; tens++)
 		{
-			if (n > i)
+			for (ones = '0'; ones <= '0'; ones++)
 			{
-				for (j = 48; j = 58; j++)
-				{
-					if (j > n)
+				if(!((ones == tens) || (tens == hundreds) ||
+			        	(tens > hundreds) || (hundreds > tens)))                                {
+					putchar(hundreds);
+					putchar(tens);
+					putchar(ones);
+					if(!(ones == '9' && hundreds == '7' &&
+								tens == '8'))
 					{
-						putchar(i);
-						putchar(n);
-						putchar(j);
-						if (i == 55 && n == 56 && j == 57)
-						{
-							break;
-						}
 						putchar(',');
 						putchar(' ');
 					}
